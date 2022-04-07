@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import newDeal from './functions/newDeal'
+import {useState} from "react"
 
 function App() {
+
+  ////////////////////////
+  // Constants
+  ////////////////////////
+
+  const [piles, setPiles] = useState([])
+  const [faceUpPiles, setFaceUpPiles] = useState([])
+  const [draw, setDraw] = useState([])
+  const [foundation, setFoundation] = useState([])
+  
+  ////////////////////////
+  // Functions
+  ////////////////////////
+
+  const newCards = () => {
+    const cards = newDeal()
+    setPiles(cards.piles)
+    setDraw(cards.draw)
+    setFaceUpPiles(cards.faceUpPiles)
+  }
+
+  ////////////////////////
+  // Render
+  ////////////////////////
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        onClick={newCards}
+      >New Deal</button>
     </div>
   );
 }
