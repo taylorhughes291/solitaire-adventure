@@ -1,7 +1,8 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.sass';
 import newDeal from './functions/newDeal'
 import {useState} from "react"
+import Foundation from "./components/foundation"
 
 function App() {
 
@@ -30,10 +31,11 @@ function App() {
   ////////////////////////
 
   return (
-    <div className="App">
+    <div classNameName="App">
       <button
         onClick={newCards}
       >New Deal</button>
+      <Foundation />
     </div>
   );
 }
