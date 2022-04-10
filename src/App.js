@@ -3,6 +3,8 @@ import './App.sass';
 import newDeal from './functions/newDeal'
 import {useState} from "react"
 import Foundation from "./components/foundation"
+import Draw from "./components/draw"
+import Stack from "./components/stack"
 
 function App() {
 
@@ -35,7 +37,19 @@ function App() {
       <button
         onClick={newCards}
       >New Deal</button>
-      <Foundation />
+      <div id='top-row'>
+        <Foundation />
+        <Draw />
+      </div>
+      <div id='stacks'>
+        <Stack />
+        <Stack />
+        <Stack />
+        <Stack />
+        <Stack />
+        <Stack />
+        <Stack />
+      </div>
     </div>
   );
 }

@@ -1,16 +1,36 @@
 
-.card
+
+.pile
   width: 90px
   height:150px
   border: 1px solid black
-  background-color: red
+
+#top-row
+  display: flex
+  justify-content: space-between
+  width: 800px
 
 #foundation
   display: flex
   width: 400px
   justify-content: space-between
 
-  .foundation-pile
-    width: 90px
-    height:150px
-    border: 1px solid black
+#draw
+  display: flex
+  justify-content: space-between
+  #draw-cards
+    position: relative
+    width: 200px
+    height: 150px
+    .draw-card
+      position: absolute
+    .draw-card:nth-of-type(2)
+      left: 30px
+    .draw-card:nth-of-type(3)
+      left: 60px
+
+#stacks
+  width: 800px
+  margin: 50px 0 0
+  display: flex
+  justify-content: space-between

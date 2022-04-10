@@ -5,23 +5,24 @@ function Draw () {
                 id='draw-cards'
             >
                 <div 
-                    className='draw-card'
+                    className='draw-card pile'
                 >
                     
                 </div>
                 <div 
-                    className='draw-card'
+                    className='draw-card pile'
                 >
                     
                 </div>
                 <div 
-                    className='draw-card'
+                    className='draw-card pile'
                 >
                     
                 </div>
             </div>
             <div
-                className='draw-pile'
+                id='draw-pile'
+                className='pile'
             >
 
             </div>
