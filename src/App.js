@@ -5,6 +5,7 @@ import {useState} from "react"
 import Foundation from "./components/foundation"
 import Draw from "./components/draw"
 import Stack from "./components/stack"
+import Card from "./components/card"
 
 function App() {
 
@@ -33,13 +34,15 @@ function App() {
   ////////////////////////
 
   return (
-    <div classNameName="App">
+    <div className="App">
       <button
         onClick={newCards}
       >New Deal</button>
       <div id='top-row'>
         <Foundation />
-        <Draw />
+        <Draw 
+          cards={draw}
+        />
       </div>
       <div id='stacks'>
         <Stack />
@@ -50,6 +53,10 @@ function App() {
         <Stack />
         <Stack />
       </div>
+      <Card 
+        value={45}
+        faceUp={false}
+      />
     </div>
   );
 }
