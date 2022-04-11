@@ -110,6 +110,8 @@ function App() {
             pile={0}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
           <Stack 
             faceDownPile={piles[1]}
@@ -117,6 +119,8 @@ function App() {
             pile={1}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
           <Stack 
             faceDownPile={piles[2]}
@@ -124,6 +128,8 @@ function App() {
             pile={2}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
           <Stack 
             faceDownPile={piles[3]}
@@ -131,6 +137,8 @@ function App() {
             pile={3}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
           <Stack 
             faceDownPile={piles[4]}
@@ -138,6 +146,8 @@ function App() {
             pile={4}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
           <Stack 
             faceDownPile={piles[5]}
@@ -145,6 +155,8 @@ function App() {
             pile={5}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
           <Stack 
             faceDownPile={piles[6]}
@@ -152,6 +164,8 @@ function App() {
             pile={6}
             faceUpPiles={faceUpPiles}
             setFaceUpPiles={setFaceUpPiles}
+            shownCards={shownCards}
+            setShownCards={setShownCards}
           />
         </div>
       </div>

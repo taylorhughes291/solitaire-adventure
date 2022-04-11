@@ -80,6 +80,13 @@ function Stack (props) {
             const endOfArray = faceUpPilesCopy[draggedCard.draggedCard.location].splice(index)
             faceUpPileCopy = faceUpPileCopy.concat(endOfArray)
             faceUpPilesCopy[props.pile] = faceUpPileCopy
+        } else if (draggedCard.draggedCard.location === 8) {
+            const shownCardsCopy = props.shownCards.slice()
+            const index = shownCardsCopy.indexOf(draggedCard.draggedCard.value)
+            const movingCard = shownCardsCopy.splice(index, 1)
+            props.setShownCards(shownCardsCopy)
+            faceUpPileCopy.push(movingCard)
+            faceUpPilesCopy[props.pile] = faceUpPileCopy
         }
         
         props.setFaceUpPiles(faceUpPilesCopy)
