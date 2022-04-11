@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.sass';
 import newDeal from './functions/newDeal'
-import {useState, createContext} from "react"
+import {useState, createContext, useEffect} from "react"
 import Foundation from "./components/foundation"
 import Draw from "./components/draw"
 import Stack from "./components/stack"
@@ -55,6 +55,23 @@ function App() {
   ////////////////////////
   // Render
   ////////////////////////
+
+  useEffect(() => {
+    const emptyFaceUpPiles = faceUpPiles.findIndex((item, index) => {
+      return (
+        item.length === 0
+      )
+    })
+
+    if (emptyFaceUpPiles >= 0 && piles[emptyFaceUpPiles].length > 0) {
+      const pilesCopy = piles.slice()
+      const faceUpPilesCopy = faceUpPiles.slice()
+      const topCard = pilesCopy[emptyFaceUpPiles].pop()
+      faceUpPilesCopy[emptyFaceUpPiles].push(topCard)
+      setFaceUpPiles(faceUpPilesCopy)
+      setPiles(pilesCopy)
+    }
+  }, [faceUpPiles])
 
   return (
     <DraggedCard.Provider

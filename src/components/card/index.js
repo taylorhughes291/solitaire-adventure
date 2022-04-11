@@ -55,11 +55,15 @@ function Card (props) {
         >
             {faceUp && <>
                 <div className='card-statement'>
-                    <h4>{cards[props.value].image}</h4>
+                    <h4
+                        className={`${cards[props.value].color}`}
+                    >{cards[props.value].image}</h4>
                     <img src={`/${cards[props.value].suit}.png`} alt={cards[props.value].suit} />
                 </div>
                 <div className='card-statement'>
-                    <h4>{cards[props.value].image}</h4>
+                    <h4
+                        className={`${cards[props.value].color}`}
+                    >{cards[props.value].image}</h4>
                     <img src={`/${cards[props.value].suit}.png`} alt={cards[props.value].suit} />
                 </div>
             </>}

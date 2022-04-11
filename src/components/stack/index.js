@@ -47,7 +47,7 @@ function Stack (props) {
                 props.faceUpPile.map((item, index) => {
                     return (
                         <div
-                            style={{marginTop: ((index * 6) + (props.faceDownPile.length * 6))}}
+                            style={{marginTop: ((index * 25) + (props.faceDownPile.length * 6))}}
                             key={index}
                         >
                             <Card 
