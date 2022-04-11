@@ -7,8 +7,7 @@ function Draw (props) {
     // Constants
     ////////////////////
 
-    const [drawPileCards, setDrawPileCards] = useState([])
-    const [shownCards, setShownCards] = useState([])
+    let {drawPileCards, shownCards, setDrawPileCards, setShownCards} = props
 
     ////////////////////
     // Functions
@@ -18,10 +17,10 @@ function Draw (props) {
         return (
             <div
                 style={{marginLeft: index*2}}
+                key={index}
             >
                 <Card
                     value={item}
-                    key={index}
                     faceUp={false}
                 />
             </div>
@@ -53,12 +52,6 @@ function Draw (props) {
     // Render
     ////////////////////
 
-    useEffect(() => {
-        if (props.cards.length > 0) {
-            setDrawPileCards(props.cards)
-        }
-    }, [])
-
     return (
         <div id='draw'>
             <div
@@ -67,7 +60,7 @@ function Draw (props) {
                 <div 
                     className='draw-card pile'
                 >
-                    {shownCards.length > 2 && <>
+                    {shownCards && shownCards.length > 2 && <>
                         <Card 
                             faceUp={true}
                             value={shownCards[shownCards.length - 3]}
@@ -77,7 +70,7 @@ function Draw (props) {
                 <div 
                     className='draw-card pile'
                 >
-                    {shownCards.length > 2 && <>
+                    {shownCards && shownCards.length > 1 && <>
                         <Card 
                             faceUp={true}
                             value={shownCards[shownCards.length - 2]}
@@ -87,7 +80,7 @@ function Draw (props) {
                 <div 
                     className='draw-card pile'
                 >
-                    {shownCards.length > 2 && <>
+                    {shownCards && shownCards.length > 0 && <>
                         <Card 
                             faceUp={true}
                             value={shownCards[shownCards.length - 1]}
