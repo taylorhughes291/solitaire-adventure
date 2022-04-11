@@ -1,5 +1,6 @@
-import {useEffect, useState} from "react"
+
 import Card from "../card"
+
 
 function Draw (props) {
 
@@ -64,6 +65,7 @@ function Draw (props) {
                         <Card 
                             faceUp={true}
                             value={shownCards[shownCards.length - 3]}
+                            draggable={false}
                         />
                     </>}
                 </div>
@@ -74,6 +76,7 @@ function Draw (props) {
                         <Card 
                             faceUp={true}
                             value={shownCards[shownCards.length - 2]}
+                            draggable={false}
                         />
                     </>}
                 </div>
@@ -84,6 +87,7 @@ function Draw (props) {
                         <Card 
                             faceUp={true}
                             value={shownCards[shownCards.length - 1]}
+                            draggable={true}
                         />
                     </>}
                 </div>
@@ -96,6 +100,7 @@ function Draw (props) {
                 {drawPile}
             </div>
         </div>
+
     )
 }
 

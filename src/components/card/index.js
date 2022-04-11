@@ -1,5 +1,6 @@
 import cards from "../../data/cardData"
-import {useEffect, useState} from "react"
+import {useEffect, useState, useContext} from "react"
+import {DraggedCard} from "../../App.js"
 
 function Card (props) {
     
@@ -8,10 +9,23 @@ function Card (props) {
     ///////////////////////////
 
     const [faceUp, setFaceUp] = useState(false)
+    const draggedCard = useContext(DraggedCard)
     
     ///////////////////////////
     // Functions
     ///////////////////////////
+
+    const preventDragHandler = (e) => {
+        e.preventDefault();
+      }
+
+    const handleDragStart = () => {
+        draggedCard.setDraggedCard(props.value)
+    }
+
+    const handleDragEnd = () => {
+        draggedCard.setDraggedCard(-1)
+    }
     
     ///////////////////////////
     // Render
@@ -26,7 +40,13 @@ function Card (props) {
     }, [props.faceUp])
 
     return (
-        <div className='card' alt={faceUp ? `${cards[props.value].image} of ${cards[props.value].suit}` : 'face down playing card'}>
+        <div 
+            className='card' 
+            draggable={props.draggable}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            alt={faceUp ? `${cards[props.value].image} of ${cards[props.value].suit}` : 'face down playing card'}
+        >
             {faceUp && <>
                 <div className='card-statement'>
                     <h4>{cards[props.value].image}</h4>
