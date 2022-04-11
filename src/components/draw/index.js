@@ -23,6 +23,7 @@ function Draw (props) {
                 <Card
                     value={item}
                     faceUp={false}
+                    location='draw'
                 />
             </div>
         )
@@ -66,6 +67,7 @@ function Draw (props) {
                             faceUp={true}
                             value={shownCards[shownCards.length - 3]}
                             draggable={false}
+                            location='draw'
                         />
                     </>}
                 </div>
@@ -77,6 +79,7 @@ function Draw (props) {
                             faceUp={true}
                             value={shownCards[shownCards.length - 2]}
                             draggable={false}
+                            location={8}
                         />
                     </>}
                 </div>
@@ -88,6 +91,7 @@ function Draw (props) {
                             faceUp={true}
                             value={shownCards[shownCards.length - 1]}
                             draggable={true}
+                            location={8}
                         />
                     </>}
                 </div>

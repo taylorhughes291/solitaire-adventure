@@ -20,11 +20,17 @@ function Card (props) {
       }
 
     const handleDragStart = () => {
-        draggedCard.setDraggedCard(props.value)
+        draggedCard.setDraggedCard({
+            value: props.value,
+            location: props.location
+        })
     }
 
     const handleDragEnd = () => {
-        draggedCard.setDraggedCard(-1)
+        draggedCard.setDraggedCard({
+            value: -1,
+            location: -1
+        })
     }
     
     ///////////////////////////

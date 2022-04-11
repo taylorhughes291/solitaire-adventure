@@ -31,16 +31,16 @@ function Foundation (props) {
 
     const handleDrop = (suit) => {
         console.log('attempting drop')
-        if (suit === cards[draggedCard.draggedCard].suit) {
+        if (suit === cards[draggedCard.draggedCard.value].suit) {
             console.log(props.foundation)
             if (props.foundation[suit].length === 0) {
-                if (cards[draggedCard.draggedCard].value === 1) {
-                    foundationUpdate(draggedCard.draggedCard, suit)
+                if (cards[draggedCard.draggedCard.value].value === 1) {
+                    foundationUpdate(draggedCard.draggedCard.value, suit)
                 }
             } else {
                 const topFoundation = props.foundation[suit].slice(-1)[0]
-                if (cards[topFoundation].value === cards[draggedCard.draggedCard].value - 1) {
-                    foundationUpdate(draggedCard.draggedCard, suit)
+                if (cards[topFoundation].value === cards[draggedCard.draggedCard.value].value - 1) {
+                    foundationUpdate(draggedCard.draggedCard.value, suit)
                 }
             }
         } else {
