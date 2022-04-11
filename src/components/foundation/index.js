@@ -77,6 +77,7 @@ function Foundation (props) {
                 onDrop={() => handleDrop('hearts')}
                 onDragOver={handleDragOver}
             >
+                <img src='/hearts.png' alt='hearts foundation pile' />
                 {foundationPile('hearts')}
             </div>
             <div 
@@ -85,6 +86,7 @@ function Foundation (props) {
                 onDrop={() => handleDrop('spades')}
                 onDragOver={handleDragOver}
             >
+                <img src='/spades.png' alt='spades foundation pile' />
                 {foundationPile('spades')}
             </div>
             <div 
@@ -93,6 +95,7 @@ function Foundation (props) {
                 onDrop={() => handleDrop('clubs')}
                 onDragOver={handleDragOver}
             >
+                <img src='/clubs.png' alt='clubs foundation pile' />
                 {foundationPile('clubs')}
             </div>
             <div 
@@ -101,6 +104,7 @@ function Foundation (props) {
                 onDrop={() => handleDrop('diamonds')}
                 onDragOver={handleDragOver}
             >
+                <img src='/diamonds.png' alt='diamonds foundation pile' />
                 {foundationPile('diamonds')}
             </div>
         </div>
