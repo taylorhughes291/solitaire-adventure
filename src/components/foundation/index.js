@@ -23,10 +23,21 @@ function Foundation (props) {
         foundationCopy[suit].push(card)
         props.setFoundation(foundationCopy)
 
-        const shownCardsCopy = props.shownCards.slice()
-        const index = shownCardsCopy.indexOf(card)
-        shownCardsCopy.splice(index, 1)
-        props.setShownCards(shownCardsCopy)
+        if (draggedCard.draggedCard.location === 8) {
+            const shownCardsCopy = props.shownCards.slice()
+            const index = shownCardsCopy.indexOf(card)
+            shownCardsCopy.splice(index, 1)
+            props.setShownCards(shownCardsCopy)
+        } else if (draggedCard.draggedCard.location < 7) {
+            const topCard = props.faceUpPiles[draggedCard.draggedCard.location].slice(-1)[0]
+            if (topCard === draggedCard.draggedCard.value) {
+                const faceUpPileCopy = props.faceUpPiles[draggedCard.draggedCard.location].slice()
+                faceUpPileCopy.splice(-1, 1)
+                const faceUpPilesCopy = props.faceUpPiles.slice()
+                faceUpPilesCopy[draggedCard.draggedCard.location] = faceUpPileCopy
+                props.setFaceUpPiles(faceUpPilesCopy)
+            }
+        }
     }
 
     const handleDrop = (suit) => {

@@ -93,6 +93,8 @@ function App() {
             setFoundation={setFoundation}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            faceUpPiles={faceUpPiles}
+            setFaceUpPiles={setFaceUpPiles}
           />
           <Draw 
             drawPileCards={draw}
