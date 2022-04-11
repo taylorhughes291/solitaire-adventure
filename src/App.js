@@ -57,19 +57,25 @@ function App() {
   ////////////////////////
 
   useEffect(() => {
-    const emptyFaceUpPiles = faceUpPiles.findIndex((item, index) => {
-      return (
-        item.length === 0
-      )
-    })
-
-    if (emptyFaceUpPiles >= 0 && piles[emptyFaceUpPiles].length > 0) {
-      const pilesCopy = piles.slice()
-      const faceUpPilesCopy = faceUpPiles.slice()
-      const topCard = pilesCopy[emptyFaceUpPiles].pop()
-      faceUpPilesCopy[emptyFaceUpPiles].push(topCard)
-      setFaceUpPiles(faceUpPilesCopy)
-      setPiles(pilesCopy)
+    if (faceUpPiles.length > 0) {
+      console.log('useEffect entered')
+      let drawIndex = -1
+      for (let i = 0; i < 7; i++) {
+        if (faceUpPiles[i].length === 0 && piles[i].length > 0) {
+          drawIndex = i
+          break
+        }
+      }
+      console.log(drawIndex)
+      if (drawIndex >= 0) {
+        console.log('should be flipping cards')
+        const pilesCopy = piles.slice()
+        const faceUpPilesCopy = faceUpPiles.slice()
+        const topCard = pilesCopy[drawIndex].pop()
+        faceUpPilesCopy[drawIndex].push(topCard)
+        setFaceUpPiles(faceUpPilesCopy)
+        setPiles(pilesCopy)
+      }
     }
   }, [faceUpPiles])
 

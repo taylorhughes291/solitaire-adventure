@@ -72,14 +72,14 @@ function Stack (props) {
     }
 
     const handleSuccess = () => {
-        const faceUpPileCopy = props.faceUpPile.slice()
-        faceUpPileCopy.push(draggedCard.draggedCard.value)
+        let faceUpPileCopy = props.faceUpPile.slice()
         let faceUpPilesCopy = props.faceUpPiles.slice()
-        faceUpPilesCopy[props.pile] = faceUpPileCopy
         
         if (draggedCard.draggedCard.location <= 6) {
             const index = faceUpPilesCopy[draggedCard.draggedCard.location].indexOf(draggedCard.draggedCard.value)
-            faceUpPilesCopy[draggedCard.draggedCard.location].splice(index, 1)
+            const endOfArray = faceUpPilesCopy[draggedCard.draggedCard.location].splice(index)
+            faceUpPileCopy = faceUpPileCopy.concat(endOfArray)
+            faceUpPilesCopy[props.pile] = faceUpPileCopy
         }
         
         props.setFaceUpPiles(faceUpPilesCopy)
