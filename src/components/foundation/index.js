@@ -16,14 +16,14 @@ function Foundation (props) {
     ////////////////////
 
     const foundationUpdate = (card, suit) => {
-        console.log(draggedCard.draggedCard)
+        
         const foundationCopy = {
             ...props.foundation
         }
         foundationCopy[suit].push(card)
         props.setFoundation(foundationCopy)
 
-        if (draggedCard.draggedCard.location === 8) {
+        if (draggedCard.draggedCard.location === 7) {
             const shownCardsCopy = props.shownCards.slice()
             const index = shownCardsCopy.indexOf(card)
             shownCardsCopy.splice(index, 1)
@@ -41,9 +41,9 @@ function Foundation (props) {
     }
 
     const handleDrop = (suit) => {
-        console.log('attempting drop')
+        
         if (suit === cards[draggedCard.draggedCard.value].suit) {
-            console.log(props.foundation)
+            
             if (props.foundation[suit].length === 0) {
                 if (cards[draggedCard.draggedCard.value].value === 1) {
                     foundationUpdate(draggedCard.draggedCard.value, suit)
@@ -55,7 +55,7 @@ function Foundation (props) {
                 }
             }
         } else {
-            console.log(false)
+            
         }
     }
 
@@ -64,6 +64,20 @@ function Foundation (props) {
     }
 
     const foundationPile = (suit) => {
+        let suitLocation = -1
+        switch (suit) {
+            case 'hearts':
+                suitLocation = 8
+                break;
+            case 'spades':
+                suitLocation = 9
+                break;
+            case 'clubs':
+                suitLocation = 10
+                break;
+            default:
+                suitLocation = 11
+        }
         return props.foundation[suit].map((item,index) => {
             return (
                 <Card 
@@ -71,6 +85,7 @@ function Foundation (props) {
                     key={index}
                     faceUp={true}
                     draggable={true}
+                    location={suitLocation}
                 />
             )
         })

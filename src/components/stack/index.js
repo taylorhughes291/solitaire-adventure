@@ -80,12 +80,43 @@ function Stack (props) {
             const endOfArray = faceUpPilesCopy[draggedCard.draggedCard.location].splice(index)
             faceUpPileCopy = faceUpPileCopy.concat(endOfArray)
             faceUpPilesCopy[props.pile] = faceUpPileCopy
-        } else if (draggedCard.draggedCard.location === 8) {
+        } else if (draggedCard.draggedCard.location === 7) {
             const shownCardsCopy = props.shownCards.slice()
             const index = shownCardsCopy.indexOf(draggedCard.draggedCard.value)
             const movingCard = shownCardsCopy.splice(index, 1)
             props.setShownCards(shownCardsCopy)
             faceUpPileCopy.push(movingCard)
+            faceUpPilesCopy[props.pile] = faceUpPileCopy
+        } else if (draggedCard.draggedCard.location > 7) {
+            let newPiles = {
+                ...props.foundation
+            }
+            let newPile = []
+            let movedCard = -1
+            switch (draggedCard.draggedCard.location) {
+                case 8:
+                    newPile = newPiles['hearts'].slice()
+                    movedCard = newPile.splice(-1, 1)
+                    newPiles['hearts'] = newPile
+                    break;
+                case 9:
+                    newPile = newPiles['spades'].slice()
+                    movedCard = newPile.splice(-1, 1)
+                    newPiles['spades'] = newPile
+                    break;
+                case 10:
+                    newPile = newPiles['clubs'].slice()
+                    movedCard = newPile.splice(-1, 1)
+                    newPiles['clubs'] = newPile
+                    break;
+                default:
+                    newPile = newPiles['diamonds'].slice()
+                    movedCard = newPile.splice(-1, 1)
+                    newPiles['diamonds'] = newPile
+                    break;
+            }
+            props.setFoundation(newPiles)
+            faceUpPileCopy.push(movedCard)
             faceUpPilesCopy[props.pile] = faceUpPileCopy
         }
         
@@ -101,8 +132,8 @@ function Stack (props) {
                     handleSuccess()
                 }
             }
-        } else {
-
+        } else if (cards[draggedCard.draggedCard.value].value === 13) {
+            handleSuccess()
         }
     }
 

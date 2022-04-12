@@ -79,7 +79,7 @@ function Draw (props) {
                             faceUp={true}
                             value={shownCards[shownCards.length - 2]}
                             draggable={false}
-                            location={8}
+                            location={7}
                         />
                     </>}
                 </div>
@@ -91,7 +91,7 @@ function Draw (props) {
                             faceUp={true}
                             value={shownCards[shownCards.length - 1]}
                             draggable={true}
-                            location={8}
+                            location={7}
                         />
                     </>}
                 </div>

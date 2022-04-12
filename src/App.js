@@ -58,7 +58,6 @@ function App() {
 
   useEffect(() => {
     if (faceUpPiles.length > 0) {
-      console.log('useEffect entered')
       let drawIndex = -1
       for (let i = 0; i < 7; i++) {
         if (faceUpPiles[i].length === 0 && piles[i].length > 0) {
@@ -66,9 +65,8 @@ function App() {
           break
         }
       }
-      console.log(drawIndex)
       if (drawIndex >= 0) {
-        console.log('should be flipping cards')
+
         const pilesCopy = piles.slice()
         const faceUpPilesCopy = faceUpPiles.slice()
         const topCard = pilesCopy[drawIndex].pop()
@@ -112,6 +110,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
           <Stack 
             faceDownPile={piles[1]}
@@ -121,6 +121,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
           <Stack 
             faceDownPile={piles[2]}
@@ -130,6 +132,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
           <Stack 
             faceDownPile={piles[3]}
@@ -139,6 +143,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
           <Stack 
             faceDownPile={piles[4]}
@@ -148,6 +154,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
           <Stack 
             faceDownPile={piles[5]}
@@ -157,6 +165,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
           <Stack 
             faceDownPile={piles[6]}
@@ -166,6 +176,8 @@ function App() {
             setFaceUpPiles={setFaceUpPiles}
             shownCards={shownCards}
             setShownCards={setShownCards}
+            foundation={foundation}
+            setFoundation={setFoundation}
           />
         </div>
       </div>

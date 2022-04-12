@@ -21,8 +21,6 @@ const newDeal = () => {
         draw: shuffledDeck
     }
 
-    console.log(hand)
-
     return hand
 }
 
